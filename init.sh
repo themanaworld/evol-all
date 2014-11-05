@@ -5,3 +5,7 @@ git clone git@gitorious.org:evol/hercules.git server-code
 git clone git@gitorious.org:evol/serverdata.git server-data
 git clone git@gitorious.org:evol/evol-tools.git tools
 git clone git@gitorious.org:evol/evol-hercules.git server-code/src/evol
+
+if [[ "$1" == "all" ]]; then
+    git clone git@gitorious.org:evol/evol-music.git music
+fi
