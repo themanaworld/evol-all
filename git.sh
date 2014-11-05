@@ -11,7 +11,7 @@ function status {
     cd $DIR
 }
 
-CMD="$1"
+CMD="$*"
 status . evol-all
 status client-data client-data
 status server-code server-code
