@@ -4,9 +4,15 @@ function status {
     DIR=`pwd`
     cd $1
     STR=`git diff --name-only`
-    if [[ -n $STR ]]; then
-        echo -e "$2:\e[1;31m"
-        echo $STR
+    STR2=`git status|grep "Your branch is ahead"`
+    if [[ -n ${STR}${STR2} ]]; then
+        echo -e "$2:"
+        if [[ -n ${STR} ]]; then
+            echo -e "\e[1;31m${STR}"
+        fi
+        if [[ -n ${STR2} ]]; then
+            echo -e "\e[1;32m${STR2}"
+        fi
         echo -e -n "\e[0m"
     fi
     cd $DIR
