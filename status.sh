@@ -6,17 +6,19 @@ function status {
     fi
     DIR=`pwd`
     cd "$1"
-    STR=`git diff --name-only`
+    STR=`git diff --stat --color=always`
     STR2=`git status|grep "Your branch is ahead"`
-    if [[ -n "${STR}${STR2}" ]]; then
+    STR3=`git status -s -uno`
+    if [[ -n "${STR}${STR2}${STR3}" ]]; then
         echo -e "$2:"
-        if [[ -n ${STR} ]]; then
-            echo -e "\e[1;31m${STR}"
-        fi
         if [[ -n ${STR2} ]]; then
-            echo -e "\e[1;32m${STR2}"
+            echo -e "\e[1;32m${STR2}\e[0m"
         fi
-        echo -e -n "\e[0m"
+        if [[ -n ${STR} ]]; then
+            echo "${STR}"
+        elif [[ -n ${STR3} ]]; then
+            echo -e "\e[1;33m${STR3}\e[0m"
+        fi
     fi
     cd $DIR
 }
