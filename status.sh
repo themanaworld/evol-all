@@ -30,3 +30,4 @@ status server-data server-data
 status tools tools
 status server-code/src/evol evol-hercules
 status music music
+status art art
