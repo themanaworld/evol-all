@@ -22,6 +22,9 @@ elif [[ "${CMD}" == "client" ]]; then
     git clone git@gitorious.org:evol/evol-tools.git tools
 elif [[ "${CMD}" == "music" ]]; then
     git clone git@gitorious.org:evol/evol-music.git music
+elif [[ "${CMD}" == "bin" ]]; then
+    cd server-bin
+    ./install.sh
 fi
 
 if [[ "${CMD}" == "all" ]]; then
