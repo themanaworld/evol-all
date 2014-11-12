@@ -11,6 +11,7 @@ if [[ "${CMD}" == "all" || "${CMD}" == "default" ]]; then
     git clone git@gitorious.org:evol/serverdata.git server-data
     git clone git@gitorious.org:evol/evol-tools.git tools
     git clone git@gitorious.org:evol/evol-hercules.git server-code/src/evol
+    git clone git@gitorious.org:evol/evol-local.git server-local
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "server" ]]; then
     git clone git@gitorious.org:evol/hercules.git server-code
@@ -22,9 +23,11 @@ elif [[ "${CMD}" == "client" ]]; then
     git clone git@gitorious.org:evol/evol-tools.git tools
 elif [[ "${CMD}" == "music" ]]; then
     git clone git@gitorious.org:evol/evol-music.git music
-elif [[ "${CMD}" == "bin" ]]; then
-    cd server-bin
-    ./install.sh
+elif [[ "${CMD}" == "local" ]]; then
+    git clone git@gitorious.org:evol/evol-local.git server-local
+    git clone git@gitorious.org:evol/hercules.git server-code
+    git clone git@gitorious.org:evol/serverdata.git server-data
+    git clone git@gitorious.org:evol/evol-hercules.git server-code/src/evol
 fi
 
 if [[ "${CMD}" == "all" ]]; then

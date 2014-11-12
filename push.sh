@@ -18,6 +18,7 @@ status . evol-all
 status client-data client-data
 status server-code server-code
 status server-data server-data
+status server-local server-local
 status tools tools
 status server-code/src/evol evol-hercules
 status music music
