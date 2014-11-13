@@ -7,7 +7,7 @@ function status {
     DIR=`pwd`
     cd "$1"
     STR=`git diff --stat --color=always`
-    STR2=`git status|grep "Your branch is ahead"`
+    STR2=`git status|grep -E "Your branch is (behind|ahead)"`
     STR3=`git status -s -uno`
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
         echo -e "$2:"
