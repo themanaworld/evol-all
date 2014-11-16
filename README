@@ -1,0 +1,41 @@
+This repository used for unite all other evol online repositories.
+
+Before using it, need create own public key, register in https://gitorious.org/ and own key to gitorious account.
+
+Each directory here mean some other repository.
+Also in this repository located scripts for mass work with all other repositories.
+
+Known scripts:
+./git.sh  - this script allow run any git command in all existing repositories.
+Usage:
+    ./git.sh gitcommand
+Example:
+    ./git.sh diff
+
+./init.sh - this script initialize new repositories.
+Usage:
+    ./init.sh task
+Allowed tasks:
+    all    - all known repositories.
+    server - repositories for run server.
+    client - repositories for client data development.
+    music  - repositories with music.
+    local  - repositories for running local server.
+    tools  - repositories with tools.
+This command allow any combinations with different tasks.
+Example:
+    ./init.sh local
+
+./pull.sh - this script allow pull in all repositories if pull is safe.
+Usage:
+    ./pull.sh
+This command pulling only if repository in clean state and all commits pushed.
+
+./push.sh - this script allow push all repositories if push is safe.
+Usage:
+    ./push.sh
+This command pushing only if repository in clean state.
+
+./status.sh - this script show all repositories state.
+Usage:
+    ./status.sh
