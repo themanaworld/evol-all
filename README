@@ -16,12 +16,13 @@ Example:
 Usage:
     ./init.sh task
 Allowed tasks:
-    all    - all known repositories.
-    server - repositories for run server.
-    client - repositories for client data development.
-    music  - repositories with music.
-    local  - repositories for running local server.
-    tools  - repositories with tools.
+    all      - all known repositories.
+    server   - repositories for run server.
+    client   - repositories for client data development.
+    music    - repositories with music.
+    local    - repositories for running local server.
+    tools    - repositories with tools.
+    manaplus - repository with manaplus sources.
 This command allow any combinations with different tasks.
 Example:
     ./init.sh local

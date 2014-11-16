@@ -31,8 +31,11 @@ elif [[ "${CMD}" == "local" ]]; then
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "tools" ]]; then
     git clone git@gitorious.org:evol/evol-tools.git tools
+elif [[ "${CMD}" == "manaplus" ]]; then
+    git clone git@gitorious.org:manaplus/manaplus.git manaplus
 fi
 
 if [[ "${CMD}" == "all" ]]; then
     git clone git@gitorious.org:evol/evol-music.git music
+    git clone git@gitorious.org:manaplus/manaplus.git manaplus
 fi
