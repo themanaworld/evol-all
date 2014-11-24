@@ -9,8 +9,14 @@ function status {
     STR=`git diff --stat --color=always`
     STR2=`git status|grep -E "Your branch is (behind|ahead)"`
     STR3=`git status -s -uno`
+    if [[ "${CMD}" == "commit" || "${CMD}" == "c" ]]; then
+        COMMIT=`git rev-parse HEAD`
+        echo "$2: ${COMMIT}"
+    fi
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
-        echo -e "$2:"
+        if [[ "${CMD}" != "commit" && "${CMD}" != "c" ]]; then
+            echo "$2:"
+        fi
         if [[ -n ${STR2} ]]; then
             echo -e "\e[1;32m${STR2}\e[0m"
         fi
@@ -22,6 +28,11 @@ function status {
     fi
     cd $DIR
 }
+
+CMD="$1"
+if [[ -z "${CMD}" ]]; then
+    export CMD="default"
+fi
 
 status . evol-all
 status client-data client-data
