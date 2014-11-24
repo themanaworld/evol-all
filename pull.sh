@@ -6,10 +6,15 @@ function status {
     fi
     DIR=`pwd`
     cd "$1"
+    echo "$2:"
+    if [[ "${CMD}" == "force" ]]; then
+        git pull --commit --no-edit
+        cd $DIR
+        return
+    fi
     STR=`git diff --name-only`
     STR2=`git status|grep "Your branch is ahead"`
     STR3=`git status -s -uno`
-    echo "$2:"
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
         echo -e "\e[1;31mCant pull because changes not pushed\e[0m"
     else
@@ -38,6 +43,11 @@ function status2 {
     fi
     cd $DIR
 }
+
+CMD="$1"
+if [[ -z "${CMD}" ]]; then
+    export CMD="normal"
+fi
 
 status . evol-all
 status client-data client-data
