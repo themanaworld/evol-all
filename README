@@ -10,7 +10,7 @@ Known scripts:
 Usage:
     ./git.sh gitcommand
 Example:
-    ./git.sh diff
+    ./git.sh diff      - run command "git diff" in all repositories
 
 ./init.sh - this script initialize new repositories.
 Usage:
@@ -25,18 +25,19 @@ Allowed tasks:
     manaplus - repository with manaplus sources.
 This command allow any combinations with different tasks.
 Example:
-    ./init.sh local
+    ./init.sh local    - create directories and pull repositories for local server usage.
 
 ./pull.sh - this script allow pull in all repositories if pull is safe.
 Usage:
-    ./pull.sh
-This command pulling only if repository in clean state and all commits pushed.
+    ./pull.sh          - pulling only if repository in clean state and all commits pushed.
+or
+    ./pull.sh force    - pulling always.
 
 ./push.sh - this script allow push all repositories if push is safe.
 Usage:
-    ./push.sh
-This command pushing only if repository in clean state.
+    ./push.sh - pushing only if repository in clean state.
 
 ./status.sh - this script show all repositories state.
 Usage:
-    ./status.sh
+    ./status.sh        - show only changed repositories
+    ./status.sh commit - show for each repository latest commit and changes in present.
