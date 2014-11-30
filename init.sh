@@ -28,6 +28,7 @@ elif [[ "${CMD}" == "local" ]]; then
     git clone git@gitorious.org:evol/hercules.git server-code
     git clone git@gitorious.org:evol/serverdata.git server-data
     git clone git@gitorious.org:evol/evol-hercules.git server-code/src/evol
+    git clone git@gitorious.org:evol/evol-tools.git tools
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "tools" ]]; then
     git clone git@gitorious.org:evol/evol-tools.git tools
