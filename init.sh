@@ -10,7 +10,6 @@ STR=`git remote -v|grep "https://"`
 if [[ -n "${STR}" ]]; then
     export PROTO="https://gitorious.org/"
 fi
-exit
 
 if [[ "${CMD}" == "all" || "${CMD}" == "default" ]]; then
     git clone ${PROTO}evol/clientdata.git client-data
