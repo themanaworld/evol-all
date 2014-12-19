@@ -23,6 +23,7 @@ elif [[ "${CMD}" == "server" ]]; then
     git clone ${PROTO}evol/hercules.git server-code
     git clone ${PROTO}evol/serverdata.git server-data
     git clone ${PROTO}evol/evol-hercules.git server-code/src/evol
+    git clone ${PROTO}evol/evol-tools.git tools
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "client" ]]; then
     git clone ${PROTO}evol/clientdata.git client-data
