@@ -6,7 +6,7 @@ if [[ -z "${CMD}" ]]; then
     export CMD="default"
 fi
 
-STR=`git remote -v|grep "https://"`
+STR=$(git remote -v|grep "https://")
 if [[ -n "${STR}" ]]; then
     export PROTO="https://gitorious.org/"
 fi

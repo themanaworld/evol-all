@@ -4,13 +4,13 @@ function status {
     if [ ! -d "$1" ]; then
         return
     fi
-    DIR=`pwd`
+    DIR=$(pwd)
     cd "$1"
-    STR=`git diff --stat --color=always`
-    STR2=`git status|grep -E "Your branch is (behind|ahead)"`
-    STR3=`git status -s -uno`
+    STR=$(git diff --stat --color=always)
+    STR2=$(git status|grep -E "Your branch is (behind|ahead)")
+    STR3=$(git status -s -uno)
     if [[ "${CMD}" == "commit" || "${CMD}" == "c" ]]; then
-        COMMIT=`git rev-parse HEAD`
+        COMMIT=$(git rev-parse HEAD)
         echo -e "$2: \e[1;33m${COMMIT}\e[0m"
     fi
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
@@ -26,7 +26,7 @@ function status {
             echo -e "\e[1;33m${STR3}\e[0m"
         fi
     fi
-    cd $DIR
+    cd "$DIR"
 }
 
 CMD="$1"

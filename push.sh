@@ -4,14 +4,14 @@ function status {
     if [ ! -d "$1" ]; then
         return
     fi
-    DIR=`pwd`
+    DIR=$(pwd)
     cd "$1"
-    STR=`git status|grep "Your branch is ahead"`
+    STR=$(git status|grep "Your branch is ahead")
     if [[ -n "${STR}" ]]; then
         echo "pusing $2"
         git push
     fi
-    cd $DIR
+    cd "$DIR"
 }
 
 status . evol-all

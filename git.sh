@@ -4,11 +4,11 @@ function status {
     if [ ! -d "$1" ]; then
         return
     fi
-    DIR=`pwd`
+    DIR=$(pwd)
     cd "$1"
     echo "$2:"
-    git $CMD
-    cd $DIR
+    git "$CMD"
+    cd "$DIR"
 }
 
 CMD="$*"
