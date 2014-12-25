@@ -8,7 +8,7 @@ function status {
     cd "$1"
     STR=$(git status|grep "Your branch is ahead")
     if [[ -n "${STR}" ]]; then
-        echo "pusing $2"
+        echo "Pushing $2"
         git push
     fi
     cd "$DIR"
