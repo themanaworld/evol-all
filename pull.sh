@@ -13,7 +13,7 @@ function status {
         return
     fi
     STR=$(git diff --name-only)
-    STR2=$(git status|grep "Your branch is ahead")
+    STR2=$(git status|grep "Your branch is ahead")$(git status|grep -E "have diverged")
     STR3=$(git status -s -uno)
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
         echo -e "\e[1;31mCant pull because changes not pushed\e[0m"

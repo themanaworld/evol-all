@@ -7,7 +7,7 @@ function status {
     DIR=$(pwd)
     cd "$1"
     STR=$(git diff --stat --color=always)
-    STR2=$(git status|grep -E "Your branch is (behind|ahead)")
+    STR2=$(git status|grep -E "Your branch is (behind|ahead)")$(git status|grep -E "have diverged")
     STR3=$(git status -s -uno)
     if [[ "${CMD}" == "commit" || "${CMD}" == "c" ]]; then
         COMMIT=$(git rev-parse HEAD)
