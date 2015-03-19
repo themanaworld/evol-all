@@ -7,7 +7,7 @@ function status {
     DIR=$(pwd)
     cd "$1"
     echo "$2:"
-    git "$CMD"
+    git $CMD
     cd "$DIR"
 }
 
