@@ -9,11 +9,12 @@ function status {
     STR=$(git status|grep "Your branch is ahead")
     if [[ -n "${STR}" ]]; then
         echo "Pushing $2"
-        git push
+        git push $CMD
     fi
     cd "$DIR"
 }
 
+CMD="$*"
 status . evol-all
 status client-data client-data
 status server-code server-code
