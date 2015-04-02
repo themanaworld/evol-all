@@ -22,3 +22,4 @@ status server-code/src/evol evol-hercules
 status music music
 status art art
 status manaplus manaplus
+status media media

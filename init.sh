@@ -41,9 +41,12 @@ elif [[ "${CMD}" == "tools" ]]; then
     git clone ${PROTO}evol/evol-tools.git tools
 elif [[ "${CMD}" == "manaplus" ]]; then
     git clone ${PROTO}manaplus/manaplus.git manaplus
+elif [[ "${CMD}" == "media" ]]; then
+    git clone ${PROTO}evol/evol-media.git media
 fi
 
 if [[ "${CMD}" == "all" ]]; then
     git clone ${PROTO}evol/evol-music.git music
     git clone ${PROTO}manaplus/manaplus.git manaplus
+    git clone ${PROTO}evol/evol-media.git media
 fi
