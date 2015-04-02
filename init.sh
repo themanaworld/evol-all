@@ -1,14 +1,14 @@
 #!/bin/bash
 
 CMD="$1"
-PROTO="git@gitorious.org:"
+PROTO="git@gitlab.com:"
 if [[ -z "${CMD}" ]]; then
     export CMD="default"
 fi
 
 STR=$(git remote -v|grep "https://")
 if [[ -n "${STR}" ]]; then
-    export PROTO="https://gitorious.org/"
+    export PROTO="https://gitlab.com/"
 fi
 
 if [[ "${CMD}" == "all" || "${CMD}" == "default" ]]; then
