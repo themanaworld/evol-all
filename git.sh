@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LANG=C
+
 function status {
     if [ ! -d "$1" ]; then
         return

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LANG=C
+
 CMD="$1"
 PROTO="git@gitlab.com:"
 if [[ -z "${CMD}" ]]; then
