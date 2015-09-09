@@ -2,6 +2,17 @@
 
 export LANG=C
 
+function dbinfo {
+    export VER=$(cat tools/localserver/versions/sqlver 2>/dev/null)
+
+    if [[ -n "${VER}" ]]; then
+        if [ "${VER}" -lt "2" ]; then
+            echo "database"
+            echo -e "\e[1;31mPlease upgrade database. See instuctions in http://wiki.evolonline.org/guidelines/updating#update_database\e[0m"
+        fi
+    fi
+}
+
 function status {
     if [ ! -d "$1" ]; then
         return
@@ -47,3 +58,4 @@ status music music
 status art art
 status manaplus manaplus
 status media media
+dbinfo
