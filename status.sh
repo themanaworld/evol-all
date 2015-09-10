@@ -24,11 +24,11 @@ function status {
     STR3=$(git status -s -uno)
     if [[ "${CMD}" == "commit" || "${CMD}" == "c" ]]; then
         COMMIT=$(git rev-parse HEAD)
-        echo -e "$2: \e[1;33m${COMMIT}\e[0m"
+        echo -e "$2 ($(git symbolic-ref --short -q HEAD)): \e[1;33m${COMMIT}\e[0m"
     fi
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
         if [[ "${CMD}" != "commit" && "${CMD}" != "c" ]]; then
-            echo "$2:"
+            echo "$2 ($(git symbolic-ref --short -q HEAD)):"
         fi
         if [[ -n ${STR2} ]]; then
             echo -e "\e[1;32m${STR2}\e[0m"

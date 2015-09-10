@@ -8,7 +8,7 @@ function status {
     fi
     DIR=$(pwd)
     cd "$1"
-    echo "$2:"
+    echo "$2 ($(git symbolic-ref --short -q HEAD)):"
     git $CMD
     cd "$DIR"
 }

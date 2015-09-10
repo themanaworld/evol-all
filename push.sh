@@ -10,7 +10,7 @@ function status {
     cd "$1"
     STR=$(git status|grep "Your branch is ahead")
     if [[ -n "${STR}" ]]; then
-        echo "Pushing $2"
+        echo "Pushing $2 ($(git symbolic-ref --short -q HEAD))"
         git push $CMD
     fi
     cd "$DIR"

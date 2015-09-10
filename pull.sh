@@ -8,7 +8,7 @@ function status {
     fi
     DIR=$(pwd)
     cd "$1"
-    echo "$2:"
+    echo "$2 ($(git symbolic-ref --short -q HEAD)):"
     if [[ "${CMD}" == "force" ]]; then
         git pull --commit --no-edit
         cd "$DIR"
@@ -34,7 +34,7 @@ function status2 {
     STR=$(git diff --name-only)
     STR2=$(git status|grep "Your branch is ahead")
     STR3=$(git status -s -uno)
-    echo "$2:"
+    echo "$2 ($(git symbolic-ref --short -q HEAD)):"
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
         echo -e "\e[1;31mCant pull because changes not pushed\e[0m"
     else
