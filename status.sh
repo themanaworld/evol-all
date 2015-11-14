@@ -8,6 +8,9 @@ function reportdb {
 }
 
 function dbinfo {
+    if [ ! -d "tools" ]; then
+        return
+    fi
     export VER=$(cat tools/localserver/versions/sqlver 2>/dev/null)
 
     if [[ -n "${VER}" ]]; then
