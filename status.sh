@@ -2,15 +2,21 @@
 
 export LANG=C
 
+function reportdb {
+    echo "database"
+    echo -e " \e[1;31mPlease upgrade database. See instuctions in http://wiki.evolonline.org/guidelines/updating#update_database\e[0m"
+}
+
 function dbinfo {
     export VER=$(cat tools/localserver/versions/sqlver 2>/dev/null)
 
     if [[ -n "${VER}" ]]; then
         if [ "${VER}" -lt "2" ]; then
-            echo "database"
-            echo -e "\e[1;31mPlease upgrade database. See instuctions in http://wiki.evolonline.org/guidelines/updating#update_database\e[0m"
+            reportdb
         fi
+        return
     fi
+    reportdb
 }
 
 function status {
