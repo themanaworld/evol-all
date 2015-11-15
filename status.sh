@@ -7,6 +7,11 @@ function reportdb {
     echo -e " \e[1;31mPlease upgrade database. See instuctions in http://wiki.evolonline.org/guidelines/updating#update_database\e[0m"
 }
 
+function reportconf {
+    echo "server-data configuration"
+    echo -e " \e[1;31mPlease upgrade configuration. See instuctions in http://wiki.evolonline.org/guidelines/updating#update_configuration\e[0m"
+}
+
 function dbinfo {
     if [ ! -d "tools" ]; then
         return
@@ -20,6 +25,21 @@ function dbinfo {
         return
     fi
     reportdb
+}
+
+function configsinfo {
+    if [ ! -d "tools" ]; then
+        return
+    fi
+    export VER=$(cat tools/localserver/versions/confver 2>/dev/null)
+
+    if [[ -n "${VER}" ]]; then
+        if [ "${VER}" -lt "1" ]; then
+            reportconf
+        fi
+        return
+    fi
+    reportconf
 }
 
 function status {
@@ -68,3 +88,4 @@ status art art
 status manaplus manaplus
 status media media
 dbinfo
+configsinfo
