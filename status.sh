@@ -46,6 +46,10 @@ function status {
     if [ ! -d "$1" ]; then
         return
     fi
+    if [ ! -d "$1/.git" ]; then
+        echo -e "\e[1;31mError: directory '$1' without git detected. Please remote it and install if need tasks.\e[0m"
+        return
+    fi
     DIR=$(pwd)
     cd "$1"
     STR=$(git diff --stat --color=always)
