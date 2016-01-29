@@ -59,6 +59,7 @@ status server-local server-local
 status tools tools
 status server-code/src/evol evol-hercules
 status music music
-status art art
 status manaplus manaplus
+status docs docs
+status art art
 status media media

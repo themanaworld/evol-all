@@ -20,6 +20,7 @@ if [[ "${CMD}" == "all" || "${CMD}" == "default" ]]; then
     git clone ${PROTO}evol/evol-tools.git tools
     git clone ${PROTO}evol/evol-hercules.git server-code/src/evol
     git clone ${PROTO}evol/evol-local.git server-local
+    git clone ${PROTO}evol/evol-docs.git docs
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "server" ]]; then
     git clone ${PROTO}evol/hercules.git server-code
@@ -41,6 +42,8 @@ elif [[ "${CMD}" == "local" ]]; then
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "tools" ]]; then
     git clone ${PROTO}evol/evol-tools.git tools
+elif [[ "${CMD}" == "docs" ]]; then
+    git clone ${PROTO}evol/evol-docs.git docs
 elif [[ "${CMD}" == "manaplus" ]]; then
     git clone ${PROTO}manaplus/manaplus.git manaplus
 elif [[ "${CMD}" == "media" ]]; then
