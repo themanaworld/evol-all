@@ -1,6 +1,6 @@
 This repository used for unite all other evol online repositories.
 
-Before using it, need create own public key, register in https://gitlab.com/ and add own key to gitorious account.
+Before using it, need create own public key, register in https://gitlab.com/ and add own key to gitlab account.
 
 Each directory here mean some other repository.
 Also in this repository located scripts for mass work with all other repositories.
