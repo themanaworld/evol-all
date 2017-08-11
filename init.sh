@@ -14,45 +14,49 @@ if [[ -n "${STR}" ]]; then
     export PROTO="https://gitlab.com/"
 fi
 
+CLONECMD="git clone --origin upstream"
+CLONE1="${CLONECMD} ${PROTO}${GROUP}"
+CLONE2="${CLONECMD} ${PROTO}"
+
 if [[ "${CMD}" == "all" || "${CMD}" == "default" ]]; then
-    git clone ${PROTO}${GROUP}/clientdata.git client-data
-    git clone ${PROTO}${GROUP}/hercules.git server-code
-    git clone ${PROTO}${GROUP}/serverdata.git server-data
-    git clone ${PROTO}${GROUP}/evol-tools.git tools
-    git clone ${PROTO}${GROUP}/evol-hercules.git server-code/src/evol
-    git clone ${PROTO}${GROUP}/evol-local.git server-local
-    git clone ${PROTO}${GROUP}/evol-docs.git docs
+    ${CLONE1}/clientdata.git client-data
+    ${CLONE1}/hercules.git server-code
+    ${CLONE1}/serverdata.git server-data
+    ${CLONE1}/evol-tools.git tools
+    ${CLONE1}/evol-hercules.git server-code/src/evol
+    ${CLONE1}/evol-local.git server-local
+    ${CLONE1}/evol-docs.git docs
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "server" ]]; then
-    git clone ${PROTO}${GROUP}/hercules.git server-code
-    git clone ${PROTO}${GROUP}/serverdata.git server-data
-    git clone ${PROTO}${GROUP}/evol-hercules.git server-code/src/evol
-    git clone ${PROTO}${GROUP}/evol-tools.git tools
+    ${CLONE1}/hercules.git server-code
+    ${CLONE1}/serverdata.git server-data
+    ${CLONE1}/evol-hercules.git server-code/src/evol
+    ${CLONE1}/evol-tools.git tools
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "client" ]]; then
-    git clone ${PROTO}${GROUP}/clientdata.git client-data
-    git clone ${PROTO}${GROUP}/evol-tools.git tools
+    ${CLONE1}/clientdata.git client-data
+    ${CLONE1}/evol-tools.git tools
 elif [[ "${CMD}" == "music" ]]; then
-    git clone ${PROTO}${GROUP}/evol-music.git music
+    ${CLONE1}/evol-music.git music
 elif [[ "${CMD}" == "local" ]]; then
-    git clone ${PROTO}${GROUP}/evol-local.git server-local
-    git clone ${PROTO}${GROUP}/hercules.git server-code
-    git clone ${PROTO}${GROUP}/serverdata.git server-data
-    git clone ${PROTO}${GROUP}/evol-hercules.git server-code/src/evol
-    git clone ${PROTO}${GROUP}/evol-tools.git tools
+    ${CLONE1}/evol-local.git server-local
+    ${CLONE1}/hercules.git server-code
+    ${CLONE1}/serverdata.git server-data
+    ${CLONE1}/evol-hercules.git server-code/src/evol
+    ${CLONE1}/evol-tools.git tools
     ln -s server-code/src/evol server-plugin
 elif [[ "${CMD}" == "tools" ]]; then
-    git clone ${PROTO}${GROUP}/evol-tools.git tools
+    ${CLONE1}/evol-tools.git tools
 elif [[ "${CMD}" == "docs" ]]; then
-    git clone ${PROTO}${GROUP}/evol-docs.git docs
+    ${CLONE1}/evol-docs.git docs
 elif [[ "${CMD}" == "manaplus" ]]; then
-    git clone ${PROTO}manaplus/manaplus.git manaplus
+    ${CLONE2}manaplus/manaplus.git manaplus
 elif [[ "${CMD}" == "media" ]]; then
-    git clone ${PROTO}${GROUP}/evol-media.git media
+    ${CLONE1}/evol-media.git media
 fi
 
 if [[ "${CMD}" == "all" ]]; then
-    git clone ${PROTO}${GROUP}/evol-music.git music
-    git clone ${PROTO}manaplus/manaplus.git manaplus
-    git clone ${PROTO}${GROUP}/evol-media.git media
+    ${CLONE1}/evol-music.git music
+    ${CLONE2}manaplus/manaplus.git manaplus
+    ${CLONE1}/evol-media.git media
 fi
