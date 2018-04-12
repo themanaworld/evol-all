@@ -38,10 +38,9 @@ function status2 {
     if [[ -n "${STR}${STR2}${STR3}" ]]; then
         echo -e "\e[1;31mCant pull because changes not pushed\e[0m"
     else
-        git pull --no-commit
+        git fetch upstream
         git fetch origin
-        export BRANCH=$(git rev-parse --abbrev-ref HEAD)
-        git reset --hard "origin/${BRANCH}"
+        git reset --hard "$(git rev-parse --abbrev-ref --symbolic-full-name @{u})"
     fi
     cd "$DIR"
 }
