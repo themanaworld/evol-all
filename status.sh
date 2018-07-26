@@ -19,7 +19,7 @@ function dbinfo {
     export VER=$(cat tools/localserver/versions/sqlver 2>/dev/null)
 
     if [[ -n "${VER}" ]]; then
-        if [ "${VER}" -lt "14" ]; then
+        if [ "${VER}" -lt "15" ]; then
             reportdb
         fi
         return
