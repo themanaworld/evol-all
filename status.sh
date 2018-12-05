@@ -34,7 +34,7 @@ function configsinfo {
     export VER=$(cat tools/localserver/versions/confver 2>/dev/null)
 
     if [[ -n "${VER}" ]]; then
-        if [ "${VER}" -lt "4" ]; then
+        if [ "${VER}" -lt "5" ]; then
             reportconf
         fi
         return
