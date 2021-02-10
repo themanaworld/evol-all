@@ -2,6 +2,7 @@
 
 export LANG=C
 export GROUP=evol
+export NAMESPACE=themanaworld
 
 CMD="$1"
 PROTO="git@gitlab.com:"
@@ -16,7 +17,7 @@ fi
 
 CLONECMD="git clone --origin upstream"
 CLONE1="${CLONECMD} ${PROTO}${GROUP}"
-CLONE2="${CLONECMD} ${PROTO}"
+CLONE2="${CLONECMD} ${PROTO}${NAMESPACE}"
 
 if [[ "${CMD}" == "all" || "${CMD}" == "default" ]]; then
     ${CLONE1}/clientdata.git client-data
@@ -50,13 +51,13 @@ elif [[ "${CMD}" == "tools" ]]; then
 elif [[ "${CMD}" == "docs" ]]; then
     ${CLONE1}/evol-docs.git docs
 elif [[ "${CMD}" == "manaplus" ]]; then
-    ${CLONE2}manaplus/manaplus.git manaplus
+    ${CLONE2}/manaplus/manaplus.git manaplus
 elif [[ "${CMD}" == "media" ]]; then
     ${CLONE1}/evol-media.git media
 fi
 
 if [[ "${CMD}" == "all" ]]; then
     ${CLONE1}/evol-music.git music
-    ${CLONE2}manaplus/manaplus.git manaplus
+    ${CLONE2}/manaplus/manaplus.git manaplus
     ${CLONE1}/evol-media.git media
 fi
